@@ -1,0 +1,1239 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'League Spartan', sans-serif;
+}
+
+body {
+    background-color: #353535;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Global Section Spacing */
+section, .content, .product-section, .features-page, .twitter-testimonials-section, .waitlist-cta-section {
+    padding: 120px 5%;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header styles */
+.header {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(53, 53, 53, 0.95);
+}
+
+.header-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.header-logo {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+}
+.header .logo {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+/* Hero section */
+.content {
+    padding-top: 140px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-left {
+    flex: 1;
+    padding-right: 60px;
+}
+
+.headline {
+    font-size: 64px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    line-height: 1.2;
+}
+
+.highlight {
+    background: linear-gradient(to right, #90DBF4, #8EECF5, #98F5E1, #B9FBC0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.subtext {
+    font-size: 24px;
+    color: #ddd;
+    margin-bottom: 50px;
+    line-height: 1.5;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 18px 36px;
+    background: linear-gradient(to right, #90DBF4, #8EECF5, #98F5E1, #B9FBC0);
+    color: #333;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation Styles */
+.animation-container {
+    flex: 1;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40px;
+}
+
+.nodes-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+    position: relative;
+    width: 100%;
+}
+
+.node {
+    background-color: #2d2d2d;
+    border-radius: 12px;
+    padding: 24px;
+    width: 160px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .node:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Only apply hover effect on non-mobile devices */
+@media (min-width: 769px) {
+    .node {
+        animation: none;
+    }
+}
+
+.node-logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 16px;
+    font-size: 42px;
+}
+
+.node-name {
+    font-weight: 600;
+    color: white;
+    font-size: 16px;
+}
+
+.connections {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.connection {
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    background: linear-gradient(to right, #90DBF4 50%, transparent 50%);
+    background-size: 10px 2px;
+    background-repeat: repeat-x;
+    animation: dash 30s linear infinite;
+    z-index: 1;
+}
+
+@keyframes dash {
+    to {
+        background-position: 500px 0;
+    }
+}
+
+/* Arrow styling for connections */
+.connection::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid #98F5E1;
+}
+
+.connection-1-2 {
+    left: 25%;
+    width: 25%;
+}
+
+.connection-2-3 {
+    left: 50%;
+    width: 25%;
+}
+
+.connection-mobile {
+    display: none;
+}
+
+.text-box-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.text-box {
+    background-color: #2d2d2d;
+    border: 2px solid #0dd3c5;
+    border-radius: 12px;
+    padding: 22px 32px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.text-box-arrow {
+    position: absolute;
+    right: -20px;
+    background-color: #0dd3c5;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.text-box-arrow:hover {
+    transform: scale(1.1);
+}
+
+.text-box-arrow svg {
+    width: 24px;
+    height: 24px;
+}
+
+.typing-animation {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    border-right: 2px solid transparent;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #0dd3c5 }
+}
+
+.fade-in {
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.cycling-text {
+    font-size: 24px;
+    line-height: 1.4;
+    min-height: 25px;
+    width: 100%;
+}
+
+/* Product Section */
+.product-section {
+    padding: 120px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-container {
+    width: 90%;
+    max-width: 1200px;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
+
+.product-image-gradient {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #90DBF4, #8EECF5, #98F5E1, #B9FBC0);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.product-ui-image {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2a2a2a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.product-ui-image img, 
+.product-ui-image video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Features Section */
+.features-page {
+    padding: 140px 5%;
+    background-color: #353535;
+}
+
+.features-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.features-header h2 {
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.feature-item {
+    flex: 1;
+    min-width: 320px;
+    max-width: 400px;
+    margin: 0 20px 60px;
+    text-align: center;
+    padding: 30px;
+    background-color: #2d2d2d;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.feature-icon {
+    font-size: 28px; /* Reduced size */
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.feature-arrow {
+    font-size: 16px;
+    color: #8EECF5;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.feature-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.feature-description {
+    font-size: 18px;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+/* Twitter Testimonials */
+.twitter-testimonials-section {
+    padding: 140px 5%;
+}
+
+.testimonials-container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.testimonials-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.testimonials-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.testimonials-heading {
+    font-size: 54px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.testimonials-subheading {
+    font-size: 22px;
+    color: #ddd;
+    font-weight: 300;
+    margin-bottom: 30px;
+    max-width: 800px;
+}
+
+.twitter-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.twitter-card {
+    background-color: #2b2b2b;
+    border-radius: 20px;
+    padding: 30px;
+    width: calc(33.33% - 30px);
+    min-width: 300px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.twitter-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-image: 
+        linear-gradient(#2b2b2b, #2b2b2b),
+        linear-gradient(to right, #90DBF4, #8EECF5, #98F5E1, #B9FBC0);
+}
+
+.twitter-user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.twitter-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.twitter-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.twitter-user-info {
+    flex: 1;
+}
+
+.twitter-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.twitter-handle {
+    font-size: 14px;
+    color: #bbb;
+    margin-top: 4px;
+}
+    
+.twitter-content {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #f0f0f0;
+}
+
+/* Waitlist CTA Section */
+.waitlist-cta-section {
+    padding: 140px 5%;
+}
+
+.cta-container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    gap: 60px;
+}
+
+.cta-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.cta-heading {
+    font-size: 68px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    line-height: 1.2;
+}
+
+.cta-subtext {
+    font-size: 24px;
+    color: #bbb;
+    margin-bottom: 50px;
+    line-height: 1.5;
+}
+
+.waitlist-button {
+    padding: 18px 36px;
+    background: linear-gradient(to right, #90DBF4, #8EECF5, #98F5E1, #B9FBC0);
+    color: #333;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: inline-block;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.waitlist-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Emoji Cloud */
+.emoji-cloud {
+    flex: 1;
+    position: relative;
+    height: 450px;
+    width: 100%;
+}
+
+.emoji-connections {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.connection-path {
+    fill: none;
+    stroke: url(#gradient);
+    stroke-width: 3;
+    stroke-dasharray: 8 4;
+    animation: dash 30s linear infinite;
+}
+
+.emoji-item {
+    position: absolute;
+    font-size: 42px;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    background-color: #2b2b2b;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.3s;
+}
+
+.emoji-item:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Each emoji should float with different timing */
+.emoji-item:nth-child(odd) {
+    animation-duration: 3.5s;
+}
+
+.emoji-item:nth-child(3n) {
+    animation-duration: 4s;
+}
+
+.emoji-item:nth-child(3n+1) {
+    animation-duration: 4.5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(-50%, -50%);
+    }
+    50% {
+        transform: translate(-50%, -60%);
+    }
+}
+
+/* Mobile Emoji Line - Hidden by default */
+.mobile-emoji-line {
+    display: none;
+}
+
+/* Footer */
+.footer {
+    background-color: #2a2a2a;
+    padding: 60px 5%;
+    border-top: 1px solid #444;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-heading {
+    font-size: 28px;
+    font-weight: 400;
+    margin: 0 0 10px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.email-input {
+    padding: 16px 20px;
+    min-width: 300px;
+    border-radius: 10px;
+    border: none;
+    background-color: #353535;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.send-button {
+    padding: 16px 28px;
+    background: linear-gradient(to right, #90DBF4, #8EECF5, #98F5E1, #B9FBC0);
+    color: #333;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: transform 0.3s;
+}
+
+.send-button:hover {
+    transform: scale(1.05);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+    .headline {
+        font-size: 54px;
+    }
+    
+    .subtext {
+        font-size: 20px;
+    }
+    
+    .features-container {
+        justify-content: center;
+    }
+    
+    .features-header h2 {
+        font-size: 42px;
+    }
+
+    .twitter-card {
+        width: calc(50% - 30px);
+    }
+    
+    .testimonials-heading {
+        font-size: 42px;
+    }
+    
+    .cta-heading {
+        font-size: 54px;
+    }
+    
+    section, .content, .product-section, .features-page, .twitter-testimonials-section, .waitlist-cta-section {
+        padding: 100px 5%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        padding-top: 120px;
+        padding-bottom: 60px;
+        justify-content: center;
+    }
+    
+    .headline {
+        font-size: 48px;
+    }
+    
+    .content-left {
+        margin-bottom: 80px;
+        padding-right: 0;
+        text-align: center;
+    }
+    
+    .animation-container {
+        padding-left: 0;
+    }
+    
+    .product-container {
+        height: 60vh;
+    }
+
+    .cta-container {
+        flex-direction: column;
+        gap: 80px;
+    }
+    
+    .cta-content {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .emoji-cloud {
+        height: 300px;
+    }
+}
+
+/* Mobile layout fixes */
+@media (max-width: 768px) {
+    .header {
+        padding: 0 20px;
+        height: 70px;
+    }
+    
+    .logo {
+        font-size: 24px;
+    }
+    
+    section, .content, .product-section, .features-page, .twitter-testimonials-section, .waitlist-cta-section {
+        padding: 80px 20px;
+        min-height: auto;
+    }
+    
+    /* Fix the hero section order - content first, then animation */
+    .content {
+        flex-direction: column;
+        padding-top: 90px;
+        justify-content: flex-start;
+    }
+    
+    /* Ensure content left (hero text) is at the top */
+    .content-left {
+        margin-top: 20px;
+        margin-bottom: 40px;
+        padding-right: 0;
+        text-align: center;
+        width: 100%;
+    }
+    
+    /* Position animation container below hero text */
+    .animation-container {
+        margin-top: 20px;
+        margin-bottom: 40px;
+        padding-left: 0;
+        height: auto;
+        width: 100%;
+    }
+    
+    /* Fix node alignment to be in a straight line */
+    .nodes-container {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        position: relative;
+        width: 100%;
+    }
+    
+    .node {
+        width: 90px;
+        padding: 12px;
+        margin: 0 5px;
+    }
+    
+    /* Add jumping animation for all nodes */
+    .node {
+        animation: nodeJump 2s ease-in-out infinite;
+    }
+    
+    /* Different timing for each node to create a wave effect */
+    .node:nth-child(1) {
+        animation-delay: 0s;
+    }
+    
+    .node:nth-child(2) {
+        animation-delay: 0.3s;
+    }
+    
+    .node:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+    
+    @keyframes nodeJump {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+    
+    .node .node-logo {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+    
+    .node .node-name {
+        font-size: 12px;
+    }
+    
+    /* Update connections for straight line */
+    .connection {
+        display: block;
+    }
+    
+    .connection-mobile {
+        display: none;
+    }
+    
+    .connection-1-2 {
+        left: 17%;
+        width: 26%;
+        top: 50%;
+        transform: none;
+    }
+    
+    .connection-2-3 {
+        left: 57%;
+        width: 26%;
+        top: 50%;
+        transform: none;
+    }
+    
+    /* Text box adjustments */
+    .text-box-container {
+        margin-top: 25px;
+        width: 100%;
+    }
+    
+    .text-box {
+        padding: 15px 20px;
+        width: 95%;
+        margin: 0 auto;
+    }
+    
+    .text-box-arrow {
+        right: -15px;
+        width: 32px;
+        height: 32px;
+    }
+    
+    .text-box-arrow svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .cycling-text {
+        font-size: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 90%;
+    }
+    
+    .headline {
+        font-size: 36px;
+        margin-bottom: 25px;
+    }
+    
+    .subtext {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+    
+    .product-container {
+        width: 95%;
+        aspect-ratio: 4 / 3;
+    }
+    
+    .features-header h2 {
+        font-size: 36px;
+    }
+    
+    .feature-item {
+        margin: 0 0 40px;
+        min-width: 100%;
+    }
+    
+    .twitter-testimonials-section {
+        padding: 80px 20px;
+    }
+    
+    .twitter-card {
+        width: 100%;
+        min-width: 250px;
+    }
+    
+    .testimonials-heading {
+        font-size: 36px;
+    }
+    
+    .testimonials-subheading {
+        font-size: 18px;
+    }
+
+    .cta-heading {
+        font-size: 42px;
+    }
+    
+    .cta-subtext {
+        font-size: 18px;
+    }
+    
+    /* MOBILE EMOJI LINE LAYOUT */
+    .emoji-cloud {
+        height: auto;
+        min-height: 120px;
+        padding: 20px 0;
+    }
+    
+    /* Hide desktop emoji layout */
+    .emoji-cloud .emoji-connections {
+        display: none;
+    }
+    
+    .emoji-cloud .emoji-item {
+        display: none;
+    }
+    
+    /* Show mobile emoji line */
+    .mobile-emoji-line {
+        display: block;
+        width: 100%;
+    }
+    
+    .mobile-emoji-wrapper {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        padding: 10px 0;
+    }
+    
+    /* Add horizontal connecting line */
+    .mobile-emoji-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        width: 80%;
+        height: 3px;
+        background: linear-gradient(to right, #90DBF4, #8EECF5, #98F5E1, #B9FBC0);
+        z-index: 1;
+        background-size: 10px 3px;
+        background-image: linear-gradient(to right, 
+            #90DBF4 50%, 
+            rgba(0,0,0,0) 50%);
+        background-repeat: repeat-x;
+        animation: dash 20s linear infinite;
+    }
+    
+    .mobile-emoji {
+        background-color: #2b2b2b;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+    }
+
+    .footer {
+        padding: 40px 20px;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .footer-right {
+        width: 100%;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .email-input {
+        width: 100%;
+        min-width: unset;
+        margin-bottom: 10px;
+    }
+    
+    .send-button {
+        width: 100%;
+    }
+}
+
+/* Define the jumping animation outside media queries to ensure it works */
+@keyframes nodeJump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@media (max-width: 576px) {
+    .headline {
+        font-size: 32px;
+    }
+    
+    .cta-button, .waitlist-button {
+        width: 100%;
+        text-align: center;
+        padding: 16px 24px;
+    }
+    
+    .feature-item {
+        padding: 20px;
+    }
+    
+    .feature-title {
+        font-size: 20px;
+    }
+    
+    .feature-description {
+        font-size: 16px;
+    }
+    
+    /* Further reduce node size for very small screens */
+    .node {
+        width: 80px;
+        padding: 10px;
+        margin: 0 4px;
+    }
+    
+    .node .node-logo {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+    
+    .node .node-name {
+        font-size: 10px;
+    }
+    
+    /* Adjust connections for smaller nodes */
+    .connection-1-2 {
+        left: 19%;
+        width: 24%;
+    }
+    
+    .connection-2-3 {
+        left: 59%;
+        width: 24%;
+    }
+    
+    .text-box {
+        width: 90%;
+        padding: 12px 16px;
+    }
+    
+    .text-box-arrow {
+        right: -12px;
+        width: 28px;
+        height: 28px;
+    }
+    
+    .cycling-text {
+        font-size: 14px;
+    }
+    
+    .mobile-emoji {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+    
+    .footer-logo {
+        font-size: 24px;
+    }
+    
+    .footer-links {
+        gap: 16px;
+    }
+}
